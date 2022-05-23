@@ -14,7 +14,7 @@ if ! [[ $URL =~ $REGEX ]]; then
 	exit 1;
 fi
 
-# Connect to the url
+# Connect to the url and evaluate the response
 wget -q --tries=10 --timeout=20 --spider "$URL"
 if [[ $? -eq 0 ]]; then
         echo "true"
