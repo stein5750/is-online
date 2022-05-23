@@ -8,13 +8,13 @@ URL=$1
 
 REGEX='^(https?://|www\.|localhost)[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*$'
 
-# Simple check if the argument is an url.
+# A simple check to see if the argument is an url.
 if ! [[ $URL =~ $REGEX ]]; then
 	echo "The argument must be an url"
 	exit 1;
 fi
 
-exit 0;
+# Connect to the url
 wget -q --tries=10 --timeout=20 --spider "$1"
 if [[ $? -eq 0 ]]; then
         echo "true"
